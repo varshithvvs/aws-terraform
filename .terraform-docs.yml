@@ -1,0 +1,32 @@
+# # see: https://terraform-docs.io/user-guide/configuration/version
+# version: ">= 0.10, < 0.12"
+
+# see: https://terraform-docs.io/user-guide/configuration/formatter
+formatter: markdown table
+
+recursive:
+  enabled: true
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+
+    <!-- END_TF_DOCS -->
+
+# see: https://terraform-docs.io/user-guide/configuration/sort
+sort:
+  enabled: true
+  by: name
+
+# see: https://terraform-docs.io/user-guide/configuration/settings
+settings:
+  indent: 4
+  escape: false
+  default: false
+  required: true
+  type: true
+  hide-empty: true
+  read-comments: true
+  color: true
