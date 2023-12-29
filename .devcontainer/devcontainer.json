@@ -46,7 +46,11 @@
     },
     "remoteEnv": {
         "TF_LOG": "info",
-        "TF_LOG_PATH": "./terraform.lo"
+        "TF_LOG_PATH": "./terraform.lo",
+        "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY}",
+        "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_KEY}",
+        "AWS_DEFAULT_REGION": "ap-south-1",
+        "AWS_PROFILE": "codespaces"
     },
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     // "remoteUser": "root",
