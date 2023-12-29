@@ -1,0 +1,58 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trailing whitespace check
+        description: This hook removes trailing whitespace from files.
+        files: (automation/|ci/|code-scanning/|deployments/|pages/).*(yaml|yml|json)$
+
+      - id: check-yaml
+        name: YAML syntax check
+        description: This hook checks that YAML files are valid.
+
+      - id: check-json
+        name: JSON syntax check
+        description: This hook checks that JSON files are valid.
+        exclude: .devcontainer/devcontainer.json # Skip .devcontainer/devcontainer.json
+
+      - id: check-case-conflict
+        name: Check for case conflicts
+        description: This hook checks for two files that differ only in case.
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.81.0
+    hooks:
+      - id: terraform_fmt
+        name: Terraform format check
+        description: This hook checks that all Terraform files are formatted
+          using `terraform fmt`.
+
+  - repo: local
+    hooks:
+      - id: terraform-validate
+        language: system
+        name: Terraform Validate
+        entry: sh
+        args:
+          - -c
+          - |
+            echo "Running terraform validate..."
+            terraform validate
+  
+  - repo: https://github.com/terraform-docs/terraform-docs
+    rev: "v0.16.0"
+    hooks:
+      - id: terraform-docs-go
+        name: Terraform docs
+        description: This hook generates documentation for Terraform modules.
+        args:
+          [
+            "markdown",
+            "table",
+            "--output-file",
+            "README.md",
+            "-c",
+            ".terraform-docs.yml",
+            ".",
+          ]
