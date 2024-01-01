@@ -24,6 +24,24 @@ This repository uses `.devcontainer` to run terraform commands. This means that 
 If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker.
 
 <!-- BEGIN_TF_DOCS -->
+#### Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 1.5.3, < 2.0.0 |
+| <a name="requirement_aws"></a> [aws](#requirement_aws) | ~> 5.31.0 |
+
+#### Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_testapp_fastapi_ecr_repository"></a> [testapp_fastapi_ecr_repository](#module_testapp_fastapi_ecr_repository) | ./modules/ecr | n/a |
+
+#### Inputs
+
+| Name | Description | Type | Required |
+|------|-------------|------|:--------:|
+| <a name="input_aws_region"></a> [aws_region](#input_aws_region) | AWS region where resources are needed | `string` | yes |
+| <a name="input_default_tags"></a> [default_tags](#input_default_tags) | Default tags to be attached to the AWS resources | `map(string)` | yes |
 
 <!-- END_TF_DOCS -->
