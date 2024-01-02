@@ -39,5 +39,4 @@
 |------|-------------|
 | <a name="output_dynamodb_table_name"></a> [dynamodb_table_name](#output_dynamodb_table_name) | The name of the DynamoDB table |
 | <a name="output_s3_bucket_arn"></a> [s3_bucket_arn](#output_s3_bucket_arn) | The ARN of the S3 bucket |
-
 <!-- END_TF_DOCS -->

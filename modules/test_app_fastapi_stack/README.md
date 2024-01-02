@@ -55,4 +55,9 @@
 | <a name="input_public_subnet_id"></a> [public_subnet_id](#input_public_subnet_id) | ID of the public subnet | `string` | yes |
 | <a name="input_vpc_id"></a> [vpc_id](#input_vpc_id) | VPC ID | `string` | yes |
 
+#### Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_alb_dns_name"></a> [alb_dns_name](#output_alb_dns_name) | This output represents the DNS name of the Application Load Balancer (ALB) associated with the ECS service. |
 <!-- END_TF_DOCS -->

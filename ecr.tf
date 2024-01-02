@@ -1,4 +1,4 @@
-#Creating ECR module using ECR repository from modules/ecr
+# Creating ECR module using ECR repository from modules/ecr
 module "testapp_fastapi_ecr_repository" {
   source                  = "./modules/ecr"
   aws_ecr_repository_name = local.fastapi_testapp_ecr_repository_name

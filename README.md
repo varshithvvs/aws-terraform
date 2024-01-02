@@ -63,4 +63,9 @@ If you have found a bug or if you have a feature request, please report them at 
 | <a name="input_subnet_mapping"></a> [subnet_mapping](#input_subnet_mapping) | Mapping of subnets | `map(object({ AvailabilityZone = string, DefaultForAz = bool, VpcID = string, Tags = map(string) }))` | yes |
 | <a name="input_vpc_mapping"></a> [vpc_mapping](#input_vpc_mapping) | Mapping of VPCs | `map(object({ IsDefault = bool, Tags = map(string) }))` | yes |
 
+#### Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_app_url"></a> [app_url](#output_app_url) | This output represents the URL of the application. |
 <!-- END_TF_DOCS -->

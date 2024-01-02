@@ -1,4 +1,4 @@
-# Setup remote backend for the repostory
+# Setup remote backend for the repository
 
 terraform {
   backend "s3" {

@@ -2,13 +2,14 @@
 
 # Local variables
 locals {
-  iam_path = "/"
+  iam_path = "/" # The IAM path for the created IAM roles
 }
 
 # ======================================================================================================================
 
 # IAM Roles
 
+# IAM policy document for the ECS assume role policy statement
 data "aws_iam_policy_document" "ecs_assume_role_policy_statement" {
   statement {
     effect = "Allow"
@@ -32,7 +33,6 @@ data "aws_iam_policy_document" "ecs_assume_role_policy_statement" {
     }
   }
 }
-
 
 # IAM Role - ECS Execution Role
 resource "aws_iam_role" "ecs_execution_role" {
