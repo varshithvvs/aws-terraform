@@ -31,5 +31,6 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_ecr_repository_name"></a> [ecr_repository_name](#output_ecr_repository_name) | Name of the ECR repository created |
+| <a name="output_ecr_repository_url"></a> [ecr_repository_url](#output_ecr_repository_url) | URL of the ECR repository created |
 
 <!-- END_TF_DOCS -->

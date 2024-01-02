@@ -31,11 +31,28 @@ If you have found a bug or if you have a feature request, please report them at 
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 1.5.3, < 2.0.0 |
 | <a name="requirement_aws"></a> [aws](#requirement_aws) | ~> 5.31.0 |
 
+#### Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider_aws) | 5.31.0 |
+
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_testapp_fastapi_ecr_repository"></a> [testapp_fastapi_ecr_repository](#module_testapp_fastapi_ecr_repository) | ./modules/ecr | n/a |
+| <a name="module_testapp_fastapi_stack"></a> [testapp_fastapi_stack](#module_testapp_fastapi_stack) | ./modules/test_app_fastapi_stack | n/a |
+
+#### Resources
+
+| Name | Type |
+|------|------|
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/partition) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
+| [aws_subnet.public_default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet) | data source |
+| [aws_vpc.default_vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 #### Inputs
 
@@ -43,5 +60,7 @@ If you have found a bug or if you have a feature request, please report them at 
 |------|-------------|------|:--------:|
 | <a name="input_aws_region"></a> [aws_region](#input_aws_region) | AWS region where resources are needed | `string` | yes |
 | <a name="input_default_tags"></a> [default_tags](#input_default_tags) | Default tags to be attached to the AWS resources | `map(string)` | yes |
+| <a name="input_subnet_mapping"></a> [subnet_mapping](#input_subnet_mapping) | Mapping of subnets | `map(object({ AvailabilityZone = string, DefaultForAz = bool, VpcID = string, Tags = map(string) }))` | yes |
+| <a name="input_vpc_mapping"></a> [vpc_mapping](#input_vpc_mapping) | Mapping of VPCs | `map(object({ IsDefault = bool, Tags = map(string) }))` | yes |
 
 <!-- END_TF_DOCS -->
