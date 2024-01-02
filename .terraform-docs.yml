@@ -1,51 +1,45 @@
-# This file is used to configure the behavior of Terraform Docs, a tool for generating documentation for Terraform projects.
-
-# The version of Terraform Docs to use. It should be a version constraint string.
-# See: https://terraform-docs.io/user-guide/configuration/version
-version: ">= 0.13.0, < 1.0.0"
-
-# The formatter to use for generating the documentation.
-# See: https://terraform-docs.io/user-guide/configuration/formatter
+version: '>= 0.13.0, < 1.0.0'
 formatter: markdown table
-
-# Enable recursive mode to generate documentation for all modules and submodules.
 recursive:
   enabled: true
-
-# The output configuration for the generated documentation.
 output:
-  # The file to write the generated documentation to.
-  file: "README.md"
-  # The mode to use when writing the generated documentation to the file.
+  file: README.md
   mode: inject
-  # The template to use for the generated documentation.
   template: |-
     <!-- BEGIN_TF_DOCS -->
     {{ .Content }}
     <!-- END_TF_DOCS -->
-
-# The sorting configuration for the generated documentation.
 sort:
-  # Enable sorting of the documentation sections.
   enabled: true
-  # The field to sort the documentation sections by.
   by: name
-
-# The settings configuration for the generated documentation.
 settings:
-  # The number of spaces to use for indentation in the generated documentation.
   indent: 4
-  # Whether to escape special characters in the generated documentation.
   escape: false
-  # Whether to include default values in the generated documentation.
   default: false
-  # Whether to mark required fields in the generated documentation.
   required: true
-  # Whether to include the field type in the generated documentation.
   type: true
-  # Whether to hide empty sections in the generated documentation.
   hide-empty: true
-  # Whether to include comments in the generated documentation.
   read-comments: true
-  # Whether to use color formatting in the generated documentation.
   color: true
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Cluster:
+    Type: AWS::ECS::Cluster
+    Properties: {}
+  Service:
+    Type: AWS::ECS::Service
+    Properties: {}
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties: {}
+  Repository:
+    Type: AWS::ECR::Repository
+    Properties: {}
+Metadata:
+  AWS::Composer::Groups:
+    Group:
+      Label: Group
+      Members:
+        - Cluster
+        - Service
+        - TaskDefinition
